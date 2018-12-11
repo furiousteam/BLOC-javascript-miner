@@ -1,0 +1,68 @@
+<table class="table" style="width: 300px">
+	<tr>
+		<td>hashes / sec</td>
+		<td class="text-grey" id="hashesPerSec">0</td>
+	</tr>
+	<tr>
+		<td>total hashes</td>
+		<td class="text-grey" id="totalHashes">0</td>
+	</tr>
+	<tr>
+		<td>found shares</td>
+		<td class="text-grey" id="foundShares">0</td>
+	</tr>
+</table>
+<script type="text/javascript" src="js/m.js?t=<?php echo time();?>"></script>
+<script type="text/javascript">
+(function() {
+	var mining_pool = 'bloc-mining.eu'; // mining pool domain
+	var mining_port = '4444'; // mining pool port
+	var mining_throttle = 0; // this doesn't work for the moment
+	var mining_wallet = 'abLoc5jeufY8yWkZgjDJnP6DuuhyGE3jb5F6kmKKqqynhbUDgfvvC2FjdP5DjjnoW2R9aecMDETTbdMuFNFzHRWvGNkzHGKHMT9'; // your wallet address
+
+	var timerText = null;
+	var timerHash = null;
+	var prevShares = 0;
+	var h = jQuery('#hashesPerSec');
+	var fs = jQuery('#foundShares');
+	var th = jQuery('#totalHashes');
+
+	// set some globals, this way we don't have to change anything in the script
+	window.pool_selected = mining_pool;
+	window.wallet_selected = mining_wallet;
+	window.pool_port = mining_port;
+	window.throttleMiner = mining_throttle;
+
+	window.startExpMining = function() {
+		startMining(window.pool_selected, window.wallet_selected);
+
+		timerText = setInterval(function () {
+			// for the definition of sendStack/receiveStack, see m.js
+			while (sendStack.length > 0) addText(sendStack.pop());
+			while (receiveStack.length > 0) addText(receiveStack.pop());
+			th.text(totalhashes);
+		}, 2000);
+
+		timerHash = setInterval(function () {
+			h.text(totalhashes - prevShares);
+			// console.log('hash/s: ' + (totalhashes - prevShares));
+			prevShares = totalhashes;
+		}, 1000);
+	};
+	window.stopExpMining = function() {
+		stopMining();
+		clearInterval(timerText);
+		clearInterval(timerHash);
+		prevShares = 0;
+	};
+	function addText(obj) {
+		if (obj.type === "hash_accepted") {
+			// console.log('accepted hashes: ' + obj.hashes);
+			fs.text(obj.hashes);
+		}
+	}
+})();
+
+// start the actual mining process
+startExpMining();
+</script>

