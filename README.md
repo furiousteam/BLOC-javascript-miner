@@ -1,6 +1,17 @@
 # BLOC-javascript-miner
 
-With this miner, you can mine [BLOC](https://bloc.money/) coins using your visitors CPU power. It will mine directly in browser.  
+With this miner, you can mine [BLOC](https://bloc.money/) coins using your visitors CPU power. It will mine directly in browser.
+
+BLOC offers a JavaScript miner for the [BLOC](https://bloc.money/) cryptocurrency that you can embed in your website. Your users run the miner directly in their Browser and mine BLOC for you in turn for an ad-free experience, in-game currency or whatever incentives you can come up with.
+
+* grant video streaming time
+* offer files for download
+* allow ad-free browsing on your site
+* credit in-game money or items in your game
+
+We are excited to see how you will use this service. We dream about it as an alternative to micro payments, artificial wait time in online games, intrusive ads and dubious marketing tactics.
+
+Your users can “pay” you with full privacy, without registering an account anywhere, without installing a browser extension and without being bombarded by shady ads. They will pay you with just their CPU power.
 
 ### Files available in this script
 
@@ -49,3 +60,9 @@ Simply navigate to `test_minimal.html` and you will start mining.
 
 - To mine, choose one of the .html files `test_with_output.html` or `test_minimal.html`. Do not use them both!
 - All .js files must be in the same folder, otherwise you need to change the paths youself
+
+### About BLOC
+
+If this is your first time hearing about BLOC, we recommend starting by visiting the official [BLOC.MONEY](https://bloc.money) website and/or the [BLOC Wiki](https://wiki.bloc.money)
+
+[![BLOC](https://wiki.bloc.money/images/BLOC-in-out_blue.gif)](https://bloc.money)
