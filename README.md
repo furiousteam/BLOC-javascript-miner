@@ -18,7 +18,7 @@ Your users can “pay” you with full privacy, without registering an account a
 - **m.js** - the actual miner that handles [javascript workers](https://www.w3schools.com/html/html5_webworkers.asp) and [websockets connections](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)
 - **worker.js** - the worker receives a job and calculates the hash
 - **cn.js** - the actual [webasm](https://webassembly.org/) mining algorithm
-- **test_with_output.html** - html file that outputs some mining stats (this will start the whole mining process)
+- **test_with_output.html** - [HTML](https://www.scaler.com/topics/html/) file that outputs some mining stats (this will start the whole mining process)
 - **test_minimal.html** - html file with minimal setup (no mining output stats)
 
 ### How to set it up
